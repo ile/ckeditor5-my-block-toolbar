@@ -32,7 +32,7 @@ import iconPilcrow from './ios-add-circle-outline.svg';
  * as `$block` for which the toolbar provides at least one option.
  *
  * By default, the button is attached so its right boundary is touching the
- * {@link module:engine/view/editableelement~EditableElement}:
+ * {@link module:engine/view/editable.element~editable.element}:
  *
  * 		 __ |
  * 		|  ||  This is a block of content that the
@@ -306,7 +306,7 @@ export default class BlockToolbar extends Plugin {
 
 		this.panelView.pin( {
 			target: this.buttonView.element,
-			limiter: this.editor.ui.view.editableElement
+			limiter: this.editor.ui.view.editable.element
 		} );
 
 		if ( !wasVisible ) {
@@ -337,7 +337,7 @@ export default class BlockToolbar extends Plugin {
 	_attachButtonToElement( targetElement ) {
 		const contentStyles = window.getComputedStyle( targetElement );
 
-		const editableRect = new Rect( this.editor.ui.view.editableElement );
+		const editableRect = new Rect( this.editor.ui.view.editable.element );
 		const contentPaddingTop = parseInt( contentStyles.paddingTop, 10 );
 		// When line height is not an integer then thread it as "normal".
 		// MDN says that 'normal' == ~1.2 on desktop browsers.
